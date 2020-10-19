@@ -8,5 +8,16 @@
 </head>
 <body>
 <h1>로그인 폼</h1>
+	<form>
+		<div>
+			<input type="text" placeholder="ID">
+		</div>
+		<div>
+			<input type="password" placeholder="PW">
+		</div>
+		<div>
+			<button type="button">Log-in</button>
+		</div>
+	</form>
 </body>
 </html>
