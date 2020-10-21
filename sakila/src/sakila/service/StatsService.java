@@ -6,11 +6,12 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import commons.DBUtil;
 import sakila.dao.StatsDao;
 import sakila.vo.Stats;
 
 public class StatsService {
-	
+	private DBUtil dbUtil;
 	private StatsDao statsDao;
 	//
 	public Stats getToday() {
@@ -27,14 +28,14 @@ public class StatsService {
 		Stats returnStats = null;
 		int totalStats = 0;
 		statsDao = new StatsDao();
-		final String URL = "jdbc:mariadb://localhost:3307/sakila";
-		final String USER = "root";
-		final String PASSWORD ="java1004";
+		
 		Connection conn = null;
 		Map<String, Object> map = null;
 		statsDao = new StatsDao();
-		try {
-			conn = DriverManager.getConnection(URL ,USER ,PASSWORD);
+		dbUtil = new DBUtil();
+		System.out.println("db : "+dbUtil);
+		try {	
+			conn = dbUtil.getConnection();
 			conn.setAutoCommit(false);
 			//오늘 날짜 구하는 메소드 호출
 			Stats stats = this.getToday();
@@ -64,14 +65,14 @@ public class StatsService {
 	}
 	// 웹페이지 접근시 리스너를 통해 돌아가는 코드
 	public void countStats() {
-		final String URL = "jdbc:mariadb://localhost:3307/sakila";
-		final String USER = "root";
-		final String PASSWORD ="java1004";
+		
 		Connection conn = null;
 		statsDao = new StatsDao();
 		System.out.println("countStats()");
+		dbUtil = new DBUtil();
 		try {
-			conn = DriverManager.getConnection(URL ,USER ,PASSWORD);
+			
+			conn = dbUtil.getConnection();
 			conn.setAutoCommit(false);
 			//오늘 날짜 구하는 메소드 호출
 			Stats stats = this.getToday();

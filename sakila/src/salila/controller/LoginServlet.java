@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import sakila.service.StaffService;
 import sakila.service.StatsService;
+import sakila.vo.Staff;
 import sakila.vo.Stats;
 
 /**
@@ -19,11 +21,10 @@ import sakila.vo.Stats;
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private StatsService statsService;
+	private StaffService staffService;
 	//로그인 폼
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		session.setAttribute("test", "test");
-		
+		HttpSession session = request.getSession();	
 		if(session.getAttribute("loginStaff")!=null) {
 			response.sendRedirect(request.getContextPath()+"/auth/IndexServlet.jsp");
 			return;
@@ -36,7 +37,23 @@ public class LoginServlet extends HttpServlet {
 	}
 	//로그인 액션
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		staffService = new StaffService();
+		int staffId = Integer.parseInt(request.getParameter("id"));
+		String password = request.getParameter("pw");
+		Staff staff = new Staff(); // request로 채움
+		staff.setStaffId(staffId);
+		staff.setPassword(password);
+		Staff returnStaff = staffService.getStaffByKey(staff);
+		String username = staff.getUsername();
+		if(returnStaff != null) {
+			request.setAttribute("staffId", staffId);
+			request.setAttribute("username", username);
+			System.out.println("성공");
+			response.sendRedirect(request.getContextPath()+"/IndexServlet");
+			return;
+		}
+		System.out.println("실패");
+		response.sendRedirect(request.getContextPath()+"/LoginServlet");
 	}
 
 }

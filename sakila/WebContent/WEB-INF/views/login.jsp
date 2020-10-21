@@ -18,7 +18,7 @@
 <br>
 <br>
 <br>
-	<form>
+	<form method="post" action="${pageContext.request.contextPath }/LoginServlet">
 		<table style="margin: auto; text-align: center;" width="300px">
 			<tr>
 				<td>
@@ -27,17 +27,17 @@
 			</tr>
 			<tr>
 				<td style="padding-bottom: 8px;">
-					<input type="text" class="form-control" placeholder="ID">
+					<input type="text" class="form-control" placeholder="ID" name = "id">
 				</td>
 			</tr>
 			<tr>
 				<td style="padding-bottom: 8px;">
-					<input type="password" class="form-control" placeholder="PW">
+					<input type="password" class="form-control" placeholder="PW" name = "pw">
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<button class = "btn-secondary btn-block" style=float:right;type="button">Log-in</button>
+					<button class = "btn-secondary btn-block" style=float:right; type="submit">Log-in</button>
 				</td>
 			</tr>
 		</table>
