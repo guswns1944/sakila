@@ -22,7 +22,7 @@
 		<table style="margin: auto; text-align: center;" width="300px">
 			<tr>
 				<td>
-					<i class='fas fa-user-circle' style='font-size:200px; text-align: center; color:#A6A6A6;'></i>
+					<a href="#"><i class='fas fa-user-circle' style='font-size:200px; text-align: center; color:#A6A6A6;'></i></a>
 				</td>
 			</tr>
 			<tr>

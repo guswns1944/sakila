@@ -15,10 +15,7 @@ import sakila.service.StatsService;
 import sakila.vo.Staff;
 import sakila.vo.Stats;
 
-/**
- * Servlet implementation class LoginServlet
- */
-@WebServlet("/LoginServlet")
+@WebServlet({"/","/LoginServlet"})
 public class LoginServlet extends HttpServlet {
 	private StatsService statsService;
 	private StaffService staffService;
@@ -44,16 +41,15 @@ public class LoginServlet extends HttpServlet {
 		staff.setStaffId(staffId);
 		staff.setPassword(password);
 		Staff returnStaff = staffService.getStaffByKey(staff);
-		String username = staff.getUsername();
 		if(returnStaff != null) {
-			request.setAttribute("staffId", staffId);
-			request.setAttribute("username", username);
+			HttpSession session = request.getSession();	
+			session.setAttribute("loginStaff", returnStaff);
 			System.out.println("성공");
-			response.sendRedirect(request.getContextPath()+"/IndexServlet");
+			//request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
+			response.sendRedirect(request.getContextPath()+"/auth/IndexServlet");
 			return;
 		}
 		System.out.println("실패");
 		response.sendRedirect(request.getContextPath()+"/LoginServlet");
 	}
-
 }

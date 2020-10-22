@@ -15,7 +15,7 @@ public class StaffDao {
 		ResultSet rs = stmt.executeQuery();
 		if(rs.next()) {
 			returnStaff = new Staff();
-			returnStaff.setStaffId(rs.getInt("staff_Id"));
+			returnStaff.setEmail(rs.getString("email"));
 			returnStaff.setUsername(rs.getString("username"));
 		}
 		return returnStaff;
