@@ -15,9 +15,14 @@ public class IndexServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//필터
-		//HttpSession session = request.getSession();	
+		HttpSession session = request.getSession();	
+		if(session.getAttribute("loginStaff")==null) {
+			response.sendRedirect(request.getContextPath()+"/auth/IndexServlet.jsp");
+			return;
+		}	
 		request.getAttribute("email");
 		request.getAttribute("username");
+		request.getAttribute("storeId");
 		request.getRequestDispatcher("/WEB-INF/views/auth/index.jsp").forward(request, response);
 	}
 

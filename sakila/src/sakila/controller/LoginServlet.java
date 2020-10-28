@@ -35,10 +35,10 @@ public class LoginServlet extends HttpServlet {
 	//로그인 액션
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		staffService = new StaffService();
-		int staffId = Integer.parseInt(request.getParameter("id"));
+		String staffEmail = request.getParameter("id");
 		String password = request.getParameter("pw");
 		Staff staff = new Staff(); // request로 채움
-		staff.setStaffId(staffId);
+		staff.setEmail(staffEmail);
 		staff.setPassword(password);
 		Staff returnStaff = staffService.getStaffByKey(staff);
 		if(returnStaff != null) {
