@@ -12,7 +12,7 @@
 		<span>${ loginStaff.username}</span>관리자님
 		</div>
 		<div>
-			<a href="${pageContext.request.contextPath }/auth/logoutServlet">로그아웃</a>
+			<a href="${pageContext.request.contextPath }/auth/LogoutServlet">로그아웃</a>
 		</div>
 <table>
 </table>

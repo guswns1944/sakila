@@ -1,4 +1,4 @@
-package salila.controller;
+package sakila.controller;
 
 import java.io.IOException;
 import java.util.Map;
@@ -15,7 +15,7 @@ import sakila.service.StatsService;
 import sakila.vo.Staff;
 import sakila.vo.Stats;
 
-@WebServlet({"/","/LoginServlet"})
+@WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private StatsService statsService;
 	private StaffService staffService;
