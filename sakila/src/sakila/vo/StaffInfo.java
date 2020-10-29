@@ -4,7 +4,7 @@ public class StaffInfo {
 	
 	private int staffId;
 	private String name;
-	
+	private String email;
 	private String address;
 	private String phone;
 	private String city;
@@ -22,6 +22,12 @@ public class StaffInfo {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getAddress() {
 		return address;
@@ -61,8 +67,10 @@ public class StaffInfo {
 	}
 	@Override
 	public String toString() {
-		return "StaffInfo [staffId=" + staffId + ", address=" + address + ", phone=" + phone + ", city=" + city
-				+ ", country=" + country + ", username=" + username + ", picture=" + picture + "]";
+		return "StaffInfo [staffId=" + staffId + ", name=" + name + ", email=" + email + ", address=" + address
+				+ ", phone=" + phone + ", city=" + city + ", country=" + country + ", username=" + username
+				+ ", picture=" + picture + "]";
 	}
+	
 	
 }

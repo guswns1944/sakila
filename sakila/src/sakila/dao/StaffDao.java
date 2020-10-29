@@ -11,15 +11,18 @@ public class StaffDao {
 	public Staff selectStaffByKey(Connection conn, Staff staff) throws Exception {
 		Staff returnStaff = null;
 		PreparedStatement stmt = conn.prepareStatement(StaffQuery.SELECT_STAFF_BY_KEY);
-		stmt.setInt(1, staff.getStaffId());
+		stmt.setString(1, staff.getEmail());
 		stmt.setString(2, staff.getPassword());
 		System.out.println(stmt);
+		System.out.println("출력");
 		ResultSet rs = stmt.executeQuery();
 		if(rs.next()) {
 			returnStaff = new Staff();
+			returnStaff.setStaffId(rs.getInt("staff_id"));
 			returnStaff.setEmail(rs.getString("email"));
 			returnStaff.setStoreId(rs.getInt("store_id"));
 			returnStaff.setUsername(rs.getString("username"));
+			System.out.println(rs.getNString("username"));
 		}
 		return returnStaff;
 	}
@@ -32,11 +35,14 @@ public class StaffDao {
 		ResultSet rs = stmt.executeQuery();
 		if(rs.next()) {
 			returnStaff = new StaffInfo();
+			returnStaff.setStaffId(rs.getInt("staff_id"));
 			returnStaff.setUsername(rs.getString("username"));
 			returnStaff.setName(rs.getString("name"));
+			returnStaff.setPhone(rs.getString("phone"));
 			returnStaff.setAddress(rs.getString("address"));
 			returnStaff.setCity(rs.getString("city"));
 			returnStaff.setCountry(rs.getString("country"));
+			returnStaff.setEmail(rs.getString("email"));
 			returnStaff.setPicture(rs.getString("picture"));
 		}
 		return returnStaff;

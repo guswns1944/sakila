@@ -41,6 +41,7 @@ public class LoginServlet extends HttpServlet {
 		staff.setEmail(staffEmail);
 		staff.setPassword(password);
 		Staff returnStaff = staffService.getStaffByKey(staff);
+		System.out.println(returnStaff);
 		if(returnStaff != null) {
 			HttpSession session = request.getSession();	
 			session.setAttribute("loginStaff", returnStaff);

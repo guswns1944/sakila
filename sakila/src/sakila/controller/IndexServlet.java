@@ -20,9 +20,7 @@ public class IndexServlet extends HttpServlet {
 			response.sendRedirect(request.getContextPath()+"/auth/IndexServlet.jsp");
 			return;
 		}	
-		request.getAttribute("email");
-		request.getAttribute("username");
-		request.getAttribute("storeId");
+		System.out.println("Debug : loginStaff"+session.getAttribute("loginStaff"));
 		request.getRequestDispatcher("/WEB-INF/views/auth/index.jsp").forward(request, response);
 	}
 

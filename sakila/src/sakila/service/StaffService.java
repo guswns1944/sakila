@@ -24,6 +24,7 @@ public class StaffService {
 			conn.setAutoCommit(false);
 			returnStaff = staffDao.selectStaffByInfo(conn, staffInfo);
 			System.out.println("staffInfo 확인");
+			System.out.println(returnStaff);
 			conn.commit();
 		} catch(Exception e) {
 			try {
@@ -53,7 +54,7 @@ public class StaffService {
 			conn.setAutoCommit(false);
 			//로그인 정보가 db에 있는지 비교해서 있으면 값을 넣어줌
 			returnStaff = staffDao.selectStaffByKey(conn, staff);
-			System.out.println("StaffByKey값 들어감");
+			System.out.println("StaffByKey값 들어감"+returnStaff);
 			conn.commit();
 		} catch(Exception e) {
 			try {
