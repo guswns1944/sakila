@@ -5,8 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css">
+<link href="/sakila/sakilaStyle.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div id="bg">
@@ -23,11 +26,11 @@
 					<br>
 					<br>
 					</div>
-						<table>
-							<tr >
-								<td>이름 : </td>
-								<td>${staffInfo.name }</td>
-								<td rowspan="6" width="60%" style="text-align:right;"><img src="/sakila/images/${staffInfo.picture}"></td>
+						<table style="margin:40px">
+							<tr>
+								<td width="10%">이름 : </td>
+								<td width="15%">${staffInfo.name }</td>
+								<td rowspan="6" style="text-align:right;"><img src="/sakila/images/${staffInfo.picture}"></td>
 							</tr>				
 							<tr>
 								<td>닉네임 : </td>

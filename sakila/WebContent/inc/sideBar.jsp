@@ -2,14 +2,13 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link href="/sakila/sakilaStyle.css" rel="stylesheet" type="text/css" />
-<link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-</head>
+    <head>
+        <meta charset="UTF-8">
+		<title>staffInfo</title>
+        <link href="/sakila/sakilaStyle.css" rel="stylesheet" type="text/css" />
+        <link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css" />
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    </head>
 <body>
 	<div id="sidebar">
 		<h3>
@@ -44,7 +43,7 @@
 				<a href="#">영화 반납</a>
 			</li>
 			<li class="line">
-				<a href="#">회원목록 관리</a>
+				<a href="${pageContext.request.contextPath}/CustomerServlet">회원목록 관리</a>
 			</li>
 			<li>
 				<a href="#">영화재고 관리</a>
